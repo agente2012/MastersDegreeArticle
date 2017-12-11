@@ -1,1 +1,10 @@
+# Ignore the built pdf
 *.pdf
+
+# Ignore the auxiliary Texmaker Files
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.log
+*.out
