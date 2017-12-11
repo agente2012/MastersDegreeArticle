@@ -1,0 +1,106 @@
+\begin{thebibliography}{KMBD17}
+
+\bibitem[ACCG17]{Augot2017}
+Daniel Augot, Herv{\'{e}} Chabanne, Olivier Cl{\'{e}}mot, and William George.
+\newblock {Transforming face-to-face identity proofing into anonymous digital
+  identity using the Bitcoin blockchain}.
+\newblock pages 1--10, 2017.
+
+\bibitem[Baa16]{Baars2016}
+Djuri Baars.
+\newblock {Towards Self-Sovereign Identity using Blockchain Technology}.
+\newblock {\em University of Twente}, page~90, 2016.
+
+\bibitem[Bar17]{Barclay2017}
+Iain Barclay.
+\newblock {Innovative Applications of Blockchain Technology in Crime and
+  Security}.
+\newblock 2017.
+
+\bibitem[Blo17a]{BlockGeeks2017}
+{BlockGeeks Ethereum Guide}.
+\newblock \url{https://blockgeeks.com/guides/ethereum/}, 2017.
+\newblock [Online; Accessed November 29, 2017].
+
+\bibitem[Blo17b]{BlockchainCompHealth2017}
+{Is Blockchain the Answer to Healthcare’s Big Data Problems?}
+\newblock
+  \url{https://healthitanalytics.com/news/is-blockchain-the-answer-to-healthcares-big-data-problems},
+  2017.
+\newblock [Online; Accessed December 1, 2017].
+
+\bibitem[Buc16]{Buchman2016}
+Ethan Buchman.
+\newblock {Tendermint: Byzantine Fault Tolerance in the Age of Blockchains}.
+\newblock 2016.
+
+\bibitem[Cac16]{Cachin2016}
+Christian Cachin.
+\newblock {Architecture of the hyperledger blockchain fabric}.
+\newblock {\em IBM Research}, July, 2016.
+
+\bibitem[Dre17]{Drescher2017}
+Daniel Drescher.
+\newblock {\em {Blockchain Basics}}.
+\newblock Apress, Berkeley, CA, 2017.
+
+\bibitem[Fac17]{FactomPartnership2017}
+{Factom’s Latest Partnership Takes on US Healthcare}.
+\newblock
+  \url{https://cointelegraph.com/news/factoms-latest-partnership-takes-on-us-healthcare},
+  2017.
+\newblock [Online; Accessed December 1, 2017].
+
+\bibitem[Hyp17a]{HyperledgerBurrow2017}
+{Hyperledger Burrow Github Page}.
+\newblock \url{https://github.com/hyperledger/burrow}, 2017.
+\newblock [Online; Accessed November 29, 2017].
+
+\bibitem[Hyp17b]{HyperledgerFabricDocs2017}
+{Hyperledger Fabric Documentation}.
+\newblock \url{https://hyperledger-fabric.readthedocs.io/en/release/}, 2017.
+\newblock [Online; Accessed November 29, 2017].
+
+\bibitem[KMBD17]{Kuhlman2017}
+Casey Kuhlman, Dan Middleton, Benjamin Bollen, and Silas Davis.
+\newblock {Hyperledger Burrow (formerly eris-db)}.
+\newblock 2017.
+
+\bibitem[Lew15]{Lewis2015}
+Antony Lewis.
+\newblock {A gentle introduction to blockchain Technology}.
+\newblock {\em Bits On Blocks}, pages 1--13, 2015.
+
+\bibitem[Nak08]{Nakamoto2008}
+Satoshi Nakamoto.
+\newblock {Bitcoin: A Peer-to-Peer Electronic Cash System}.
+\newblock {\em \url{https://bitcoin.org/bitcoin.pdf}}, page~9, 2008.
+
+\bibitem[SWP16]{Shrier2016}
+David Shrier, Weige Wu, and Alex Pentland.
+\newblock {Blockchain {\&} Infrastructure ( Identity , Data Security )}.
+\newblock pages 1--18, 2016.
+
+\bibitem[VS17]{Valenta2017}
+Martin Valenta and Philipp Sandner.
+\newblock {Comparison of Ethereum, Hyperledger Fabric and Corda}.
+\newblock (June):1--8, 2017.
+
+\bibitem[Vuk17]{Vukolic2017}
+Marko Vukoli{\'{c}}.
+\newblock {Rethinking Permissioned Blockchains}.
+\newblock {\em Proceedings of the ACM Workshop on Blockchain, Cryptocurrencies
+  and Contracts - BCC '17}, pages 3--7, 2017.
+
+\bibitem[Woo17]{Wood2017}
+Gavin Wood.
+\newblock {Ethereum: a Secure Decentralised Generalised Transaction Ledger}.
+\newblock 2017.
+
+\bibitem[YL16]{Yasin2016}
+Affan Yasin and Lin Liu.
+\newblock {An Online Identity and Smart Contract Management System}.
+\newblock {\em Proceedings - International Computer Software and Applications
+  Conference}, 2:192--198, 2016.
+
+\end{thebibliography}
