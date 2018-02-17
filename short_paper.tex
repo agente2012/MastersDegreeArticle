@@ -32,7 +32,7 @@ João Santos}
 %#====================================Abstract===========================================#%
 
 \begin{abstract}
-Nowadays Health is becoming more digital. Thanks to the advent of the computers more and more records are stored on a digital format and the Electronic Health Record (EHR) was created. While all this information should benefit both patient and Health professionals alike, it is not being used to the fullest due to problems caused, in part, thanks to the fragmentation of a patient's identity inherent in today's Health Information Systems. Using the Blockchain technology a system can be created such that costs and risks inherent in today's Health digital landscape can be reduced and information can become transparent and trustworthy to all participants. It is with hope, that a positive change to this field can be introduced and that future generations can enjoy better Healthcare for everyone.
+Nowadays Health is becoming more digital. Thanks to the advent of the computers more and more records are stored on a digital format and the Electronic Health Record (EHR) was created. While all this information should benefit both patient and Health professionals alike, it is not being handled in an effective manner due to problems caused, in part, thanks to the fragmentation of a patient's identity inherent in today's Health Information Systems. Using the Blockchain technology a system can be created to provide several benefits over traditional methods used in today's Health digital landscape. Costs and risks inherent in these can be reduced and information can become transparent and trustworthy to all participants. In this article the technological foundations that enable this change are explored and analyzed. Then some conclusions about their effect in Healthcare are discussed.
 \keywords{Blockchain, Health, Identity, Big Health}
 \end{abstract}
 
@@ -40,28 +40,35 @@ Nowadays Health is becoming more digital. Thanks to the advent of the computers 
 %#===================================Introduction========================================#%
 \section{Introduction}
 
-The purpose of this work is to create and implement a blockchain based system for Identity Management in the Healthcare domain. Specifically in this platform the patient must be able to manage his data and control access to it. Due to these characteristics the platform is very suited to control the patient’s identity in hospitals or clinics and potentially solves many problems that are inherent to how data is handled in a medical environment.
+Health is an important topic, for everyone. Without health a person cannot hope to live a fulfilling life. Healthcare should strive to provide the best service it can for everyone and that everyone should have access to a quality service. Digital health records are being generated at an ever increasing rate but many times the data is not used in a way that puts the patient's privacy and trust at the forefront.
+
+The purpose of the work presented in this paper is to create and implement a blockchain based system for Identity Management in the Healthcare domain. Where the patient will be able to manage his data and control access to it. Such a system would be suited to handle the patient’s identity, for example, in hospitals or clinics and potentially solves many problems that are inherent to how data is traditionally handled in a medical environment.
 \par
-Blockchain is the technology behind the Bitcoin Cryptocurrency and its main design goal is to provide security and immutability to an agreed upon list of records.
+Blockchain is the technology behind the Bitcoin Cryptocurrency, altough nowadays it is being used for many more purposes which are explored in section \ref{background}, and its main design goal is to provide security and immutability to an agreed upon list of records.
 \par
-A blockchain runs on a network of computers and the list of records is replicated across the participating peers. While the first blockchain was conceptualized as the public ledger for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto and implemented in 2009, many are finding it has a much more broad potential across many fields, with some implementations even resembling a programming platform to execute code in an autonomous manner.
+A blockchain runs on a network of computers and the list of records is replicated across all participating peers. While the first blockchain was conceptualized as the public ledger for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto, a pen name of, a still unknown to this day, individual or organization of individuals. The network was implemented in 2009 and many are now finding it has a much more broad potential across many fields, with some implementations even resembling a programming platform to execute code in an autonomous manner.
+\cite{Nakamoto2008}
 \par
-A single universal way to identify the patient in a health environment is clearly something we should strive towards as seen in, for example, \textit{Cartão de Cidadão}, a portuguese identification document that replaces four other identification documents, streamlining portuguese civilian identification. This also allows many businesses to tailor their services to this document making it easier on both parts and eliminating unnecessary costs and risks.
+A single universal way to identify a person in a given environment is clearly something we should strive towards as seen in, for example, \textit{Cartão de Cidadão}, a portuguese identification document that replaces four other identification documents, streamlining portuguese civilian identification. This also allows many businesses to tailor their services to this document making it easier on both parts and eliminating unnecessary costs and risks.
 \par
-Electronic Health Records (EHR) have seen some progress made in regards to standards that allow for interoperability between different organization thanks to the Health Level 7 (HL7) standard. While this standard is growing in use and is represented internationally, Portugal has just started the work required to implement it.	
+Electronic Health Records (EHR) have seen some progress made regarding the standards that allow for interoperability between different organization thanks to the Health Level 7 (HL7) standard. While this standard is growing in use and is represented internationally, Portugal has just started the work required to implement it.
+\cite{HealthLevel7}
 \par
-In an effort to make the identity of a patient more secure and transparent a blockchain can be used to create a system that puts at the forefront of its design the patients, breaking conventions in traditional patient data handling and giving back the ability to control our identities.
+In an effort to make the identity of a patient more secure and transparent a blockchain can be used to create a system that puts at the forefront of its design the patients, breaking conventions in traditional patient data handling and giving them back the ability to control their identities.
+\par
+In this article different Blockchain implementations are explored and related work in this field is presented. More precisely, in section \ref{background}, a brief introduction to Blockchain is made followed by an introduction to its most prominent implementations. Then a number of real-world use cases of this technology in the healthcare field are explored. Finally, in section \ref{conclusion},  some conclusions are observed regarding the change enabled by these advances.
 
 
 %#====================================Background========================================#%
 
-\section{Background}
+\section{Background} \label{background}
 
-\textit{This section describes the Blockchain technology and then presents related work in this field. A brief introduction to Blockchain is presented followed by an introduction to its most prominent implementations. Finally some real-world use cases of this technology are mentioned and explored. }
+\textit{While Blockchain is not a new concept at this point, it is an evolving technology that is being used to solve old problems with new approaches. This section will explore the blockchain technology origins and history, some of its different implementations and a brief history to the identity problem is presented. }
 
 \subsection{Blockchain Technology}
 
-A blockchain can be many things, the Bitcoin blockchain, Altchains or even platforms that allow execution of code in an autonomous manner, exactly as it was programmed, with no human intervention. Is is a continuously growing list of records, written in the ledger, that is replicated across a network of devices in opposition to having a single central copy, making it an example of a distributed data structure.
+A blockchain can be many things. It can refer to the Bitcoin blockchain, alternate implementations or forks of the Bitcoin blockchain called Altchains or even platforms that allow execution of code in an autonomous manner, exactly as it was programmed, with no human intervention. Is is a continuously growing list of records, written in the ledger, that is replicated across a network of devices in opposition to having a single central copy, making it an example of a distributed data structure.
+\cite{Wood2017}
 \par  
 The main design goal of blockchain is security and to this effect it uses techniques such as cryptography and digital signatures to verify the authenticity and read or write access to the blockchain.
 \par
@@ -71,7 +78,7 @@ But then, how does a permissionless blockchain maintain security if everyone has
 \par
 Take for example the Bitcoin blockchain that uses a peer-to-peer network to avoid meddling from a financial institution or a third party in a financial transaction. Given that participating nodes in the network can belong to different and often competing parties, there is no implied trust between them, so the blockchain needs a mechanism to ensure the integrity of the ledger and prevent malicious meddling from interested parties or to avoid a central authority.\cite{Barclay2017}
 \par
-To solve this problem, consensus mechanisms are used differently, depending on its implementation, but having, at its core, a solution to create immutable records and ensure security. In Bitcoin blockchain’s case, consensus is reached by the longest chain rule where the longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power.\cite{Baars2016}
+To solve this problem, consensus mechanisms are used differently, depending on its implementation, but having, at its core, a solution to create immutable records and ensure security. In Bitcoin blockchain’s case, consensus is reached by the longest chain rule where the longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of computing power.\cite{Baars2016}
 \par
 While the first blockchain was conceptualized as the public ledger for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto and implemented in 2009, many are now using it as a foundation across many application areas such as identity management, traceability and asset management. Thanks to the roaring success of Bitcoin and the increasingly apparent use cases that the blockchain can provide, the public awareness of it is rising and it is quickly becoming a technological foundation in our economic and social systems.
 \par
@@ -79,10 +86,10 @@ While the first blockchain was conceptualized as the public ledger for the Bitco
 \textbf{Ethereum}
 \vspace{6pt}
 
-Bitcoin is getting media coverage almost everyday and public awareness in cryptocurrencies in general is rising. It’s not surprising then that some people consider cryptocurrencies and the blockchain, to be essentially the same technology and, while that may have been somewhat true not so long ago, blockchain technology is starting to be used in a plethora of ways.
+Bitcoin is getting media coverage almost everyday and public awareness in cryptocurrencies in general is rising. Some people are considering cryptocurrencies and the blockchain, to be essentially the same technology and, while that may have been somewhat true not so long ago, blockchain technology is starting to be used in a plethora of ways.
 \par
-Ethereum is an open-source platform based on the blockchain technology that enables developers to build and deploy decentralized applications or \textit{DAPPs} for short.
-Ethereum is being developed by the Ethereum Foundation and was first discussed by Buterin [2013] and then discussed further by Wood [2017]. Ethereum intends to provide a blockchain with a built-in programming language that is used to create \textit{“Smart contracts”}.
+Ethereum is an open-source platform based on the blockchain technology that enables developers to build and deploy Decentralized Applications (\textit{DAPPs}).
+Ethereum is being developed by the Ethereum Foundation and was first discussed by Buterin [2013]. Ethereum intends to provide a blockchain with a built-in programming language that is used to create \textit{“Smart contracts”}.
 \cite{Wood2017}
 \par
 These contracts are used to describe the logic of any system that developers can imagine and, when created, can then be deployed to the blockchain where they execute as “autonomous agents”. Thanks to these tools it is safe to say that long gone are the days where building blockchain applications required a complex background in coding cryptography, mathematics as well as significant resources.\cite{Wood2017,BlockGeeks2017}
@@ -93,7 +100,8 @@ Ethereum blockchain is a permissionless blockchain, and thus, it must have a con
 \textbf{Hyperledger Fabric}
 \vspace{6pt}
 
-Hyperledger Fabric (HLF) is part of the Hyperledger project started in December 2015 by the Linux Foundation, and is an open-source developer-focused community of communities focused on the development of open-source blockchain-based distributed ledgers occurs. Since Fabric is part of  this project umbrella it is business-focused.
+Hyperledger Fabric (HLF) is part of the Hyperledger project started in December 2015 by the Linux Foundation, and is an open-source developer-focused community of communities focused on the development of enterprise-grade, open-source blockchain-based solutions. Fabric is an implementation of a distributed ledger platform under the Hyperledger umbrella.
+\cite{Cachin2016}
 \par
 HLF’s initial commit was contributed by IBM and written in Go language. It is a permissioned blockchain and its main design goal was to surpass previous blockchain implementation limitations, such as, lack of true private transactions and confidential contracts.
 \par
@@ -113,9 +121,9 @@ HLB has its own Consensus Engine, the Byzantine fault-tolerant Tendermint protoc
 %#===========================Identity in Healthcare===================================#%
 
 \subsection{Identity in Healthcare}
-Originally records of a patient were stored in a physical format, in a paper and their files. Thanks to the advent of the computers more and more records are stored on a digital format and the Electronic Health Record (EHR) was created. This allows for easier handling of information and benefits the patient and the medical professionals.
+Originally records of a patient were stored in a physical format. Thanks to the advent of the computers more and more records are stored on a digital format and the Electronic Health Record (EHR) was created. This allows for easier handling of information and benefits the patient and the medical professionals.
 \par
-Standard for EHRs were created and many failed to bring the much needed consensus that was required for interoperability between different information systems in different institutions. Health Level 7 has done much work to be recognized in many countries and is quickly being implemented in many Countries to allow for joint efforts between organizations.
+Standards for EHRs were created and many failed to bring the much needed consensus that was required for interoperability between different information systems in different institutions. Health Level 7 has done much work to be recognized in many countries and is quickly being implemented in many Countries to allow for joint efforts between organizations.
 \par
 However due to the decentralized nature of many health organizations the identity of a person has become a very cumbersome, costly and risky affair to handle. Security in a connected age, where internet is easily available, is lagging behind and presenting some problems. There is also the question of transparent use of information by the organizations that store it.
 
@@ -125,15 +133,19 @@ However due to the decentralized nature of many health organizations the identit
 \subsection{Blockchain for Identity Management in Healthcare: Use Cases}
 Some companies started to see blockchain applications in the Healthcare field and established some key partnerships however many of those are still very early on development or deployment. One exception is Guardtime that has fully deployed their system for the Estonian Government in 2008 where a million patient records are secured by the strategy and, until today, still proves the resilience of the Blockchain technology thanks to other advances in the cryptography side.
 \par
-Another interesting company to mention is Gem, which is collaborating with Phillips Healthcare to explore options in this area, and is opting to solve the interoperability problem with an additional layer of abstraction they call GemOS. Factom, another Blockchain-based record keeping service, has also announced a partnership with a major US medical services provider HealthNautica.\cite{BlockchainCompHealth2017,FactomPartnership2017}
+Another interesting company to mention is Gem, which is collaborating with Phillips Healthcare to explore options in this area, and is opting to solve the interoperability problem with an additional layer of abstraction they call GemOS. Factom, another Blockchain-based service, has also announced a partnership with a major US medical services provider HealthNautica.\cite{BlockchainCompHealth2017,FactomPartnership2017}
 \par
 It is safe to assume that more and more companies will try to fill this void and try to solve the identity problem we face.
 
 
 %#===========================Conclusion===================================#%
 
-\section{Conclusion}
-In conclusion, a system for this purpose can be built with this technology, as seen in the Background section. This is a problem that must be solved to increase the patients trust in their Healthcare service, reduce costs and reduce risks inherent to multiple descentralized information systems that are not normalized to any standard. It is with hope that a positive change to this field can be introduced and future generations can enjoy better Healthcare for everyone.
+\section{Conclusion} \label{conclusion}
+In this document it was described the way identity is handled by medical institutions nowadays presents a problem. Blockchain was explored as a tool to solve this problem and some of its different implementations were analyzed. Some practical use cases of this technology also discussed. This research will enable solid foundations for future work.
+\par
+It is safe to say that a system for improving the way a patient can interact with their health data can be built, using this technology, as discussed in previous sections. The system should allow for a transparent handling of personal data and be able to allow for secure management of access to this particular data.
+\par
+If an advance is made in this regard it is expected that the patients trust in their Healthcare service is increased, and that risks and costs inherent to multiple descentralized information systems, that are not normalized to any standard, be reduced. 
 \newpage
 %#====================================Bibliography========================================#%
 
