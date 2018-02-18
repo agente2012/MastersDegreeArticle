@@ -32,7 +32,7 @@ João Santos}
 %#====================================Abstract===========================================#%
 
 \begin{abstract}
-Nowadays Health is becoming more digital. Thanks to the advent of the computers more and more records are stored on a digital format and the Electronic Health Record (EHR) was created. While all this information should benefit both patient and Health professionals alike, it is not being handled in an effective manner due to problems caused, in part, thanks to the fragmentation of a patient's identity inherent in today's Health Information Systems. Using the Blockchain technology a system can be created to provide several benefits over traditional methods used in today's Health digital landscape. Costs and risks inherent in these can be reduced and information can become transparent and trustworthy to all participants. In this article the technological foundations that enable this change are explored and analyzed. Then some conclusions about their effect in Healthcare are discussed.
+Nowadays Health is becoming more digital. Thanks to the widespread availability of computing devices more and more records are stored on a digital format. For patients clinical data, the Electronic Health Record (EHR) was created. While all this information should benefit both patient and Health professionals alike, it is not being handled in an effective manner due to problems caused, in part, thanks to the fragmentation of a patient's identity inherent in today's Health Information Systems. Using the Blockchain technology a system can be created to provide several benefits over traditional methods being used in today's Health digital landscape. Costs and risks associated with these systems can be reduced and information can become transparent and trustworthy to all participants. In this article the technological foundations that enable this change are explored and analyzed. The system will be presented and its impact in Healthcare discussed.
 \keywords{Blockchain, Health, Identity, Big Health}
 \end{abstract}
 
@@ -40,23 +40,23 @@ Nowadays Health is becoming more digital. Thanks to the advent of the computers 
 %#===================================Introduction========================================#%
 \section{Introduction}
 
-Health is an important topic, for everyone. Without health a person cannot hope to live a fulfilling life. Healthcare should strive to provide the best service it can for everyone and that everyone should have access to a quality service. Digital health records are being generated at an ever increasing rate but many times the data is not used in a way that puts the patient's privacy and trust at the forefront.
+Health is an important topic, for everyone. Healthcare should strive to provide the best service it can for everyone and everyone should have access to a quality service. EHR are being generated at an ever increasing rate but many times the data is not used in a way that puts the patient's privacy and trust at the forefront.
 
-The purpose of the work presented in this paper is to create and implement a blockchain based system for Identity Management in the Healthcare domain. Where the patient will be able to manage his data and control access to it. Such a system would be suited to handle the patient’s identity, for example, in hospitals or clinics and potentially solves many problems that are inherent to how data is traditionally handled in a medical environment.
+The purpose of the work presented in this paper is to create and implement a blockchain based system for Identity Management in the Healthcare domain. The patient will be able to manage his data and control access to it. Such a system would be suited to handle the patient’s identity, for example, in hospitals or clinics and solving many problems that are inherent to how data is traditionally handled with the information systems available in a regular medical environment.
 \par
 Blockchain is the technology behind the Bitcoin Cryptocurrency, altough nowadays it is being used for many more purposes which are explored in section \ref{background}, and its main design goal is to provide security and immutability to an agreed upon list of records.
 \par
-A blockchain runs on a network of computers and the list of records is replicated across all participating peers. While the first blockchain was conceptualized as the public ledger for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto, a pen name of, a still unknown to this day, individual or organization of individuals. The network was implemented in 2009 and many are now finding it has a much more broad potential across many fields, with some implementations even resembling a programming platform to execute code in an autonomous manner.
+A blockchain runs on a network of computers and the list of records is replicated in some manner depending on the blockchain implementation. The first blockchain was conceptualized as the public ledger for the Bitcoin cryptocurrency in 2008 by Satoshi Nakamoto, a pen name of, a still unknown to this day, individual or organization of individuals. The network was implemented in 2009 and many are now finding it has a much broader potential across many fields, with some implementations even resembling a programming platform to execute code in an autonomous manner.
 \cite{Nakamoto2008}
 \par
 A single universal way to identify a person in a given environment is clearly something we should strive towards as seen in, for example, \textit{Cartão de Cidadão}, a portuguese identification document that replaces four other identification documents, streamlining portuguese civilian identification. This also allows many businesses to tailor their services to this document making it easier on both parts and eliminating unnecessary costs and risks.
 \par
-Electronic Health Records (EHR) have seen some progress made regarding the standards that allow for interoperability between different organization thanks to the Health Level 7 (HL7) standard. While this standard is growing in use and is represented internationally, Portugal has just started the work required to implement it.
+Electronic Health Records (EHR) have seen some progress made regarding the standards that allow for interoperability between different organizations thanks to the Health Level 7 (HL7) standard. While this standard is growing in use and is represented internationally, Portugal has just started the work required to implement it.
 \cite{HealthLevel7}
 \par
-In an effort to make the identity of a patient more secure and transparent a blockchain can be used to create a system that puts at the forefront of its design the patients, breaking conventions in traditional patient data handling and giving them back the ability to control their identities.
+In an effort to make the identity of a patient more secure and transparent a blockchain can be used to create a system that puts at the forefront of its design the patients, breaking conventions in traditional patient data handling thanks to the inherent characteristics of this technology.
 \par
-In this article different Blockchain implementations are explored and related work in this field is presented. More precisely, in section \ref{background}, a brief introduction to Blockchain is made followed by an introduction to its most prominent implementations. Then a number of real-world use cases of this technology in the healthcare field are explored. Finally, in section \ref{conclusion},  some conclusions are observed regarding the change enabled by these advances.
+In this article different Blockchain implementations are explored and related work in this field is presented. More precisely, in section \ref{background}, a brief introduction to Blockchain is made followed by an introduction to its most prominent implementations. Then a number of real-world use cases of this technology in the healthcare field are explored. In section \ref{HLFHealthcare} technical details of a proposed system will be presented. Finally, in section \ref{conclusion},  some conclusions are observed regarding the change enabled by these advances.
 
 
 %#====================================Background========================================#%
@@ -137,11 +137,40 @@ Another interesting company to mention is Gem, which is collaborating with Phill
 \par
 It is safe to assume that more and more companies will try to fill this void and try to solve the identity problem we face.
 
+%#==============Patient Identity Representation in Blockchain==========================#%
+
+\section{A HLF Network for Healthcare} \label{HLFHealthcare}
+\textit{After analyzing the different blockchain implementations the fabric network was chosen as the foundation for this system. First we will discuss the tools provided to configure the network, and then discuss the system architecture.}
+
+\subsection{Fabric Network Configuration Tools}
+
+HLF does not use a centralized ledger where every record would be available to every participant in the network. Instead it spans multiple ledgers in a network. This allows, as discussed, the creation of channels of information between trusted parties, for example, a channel between the clinical staff of a hospital and a patient.
+\par
+After obtaining the fabric binaries there are four tools that can be used to configure and manage a HLF network.
+\par
+The \textit{"cryptogen"} tool generates cryptographic data consuming the file \textit{"crypto-config.yaml"}. HLF uses an abstraction layer for certification and authority called Membership Service Provider (MSP) that defines the rules by which entities are governed and authenticated and it must be unique for every participating entity.
+\par
+The \textit{"configtxgen"} tool generates the genesis block for the orderer services and the initial transactions. This tool consumes the file \textit{"configtx.yaml"} that defines configuration parameters for channels, the genesis block and the orderer service.
+\par
+The \textit{"configtxlator"} tool is also used to generate channel configurations. Finally the \textit{"peer"} tool is used to manage the participating peers in the HLF network.
+
+\subsection{Identity Representation Proposal}
+
+To manage the data of the patient they must be identified by the blockchain. To this purpose it is proposed that the identity of a patient is recorded on the ledger of the fabric network.
+\par
+To aid in interoperability with other systems the FHIR standard for Health Level 7 was used as basis for the representation of a patient.
+
+\subsection{Aplication and Smart Contracts}
+
+To create an interactive system an application will be built that the end-user will interact with. This application will interface with smart contracts through Hyperledger Fabric Software Development Kit built using the Hyperledger Fabric Shim for node.js.
+\par
+The application will handle the user input and commands will be presented for the user to handle the application flow. The smart contract will handle the assets part of the system. A smart contract to represent and manipulate identity will be built and interface with the network to write records to the appropriate ledger.
+\newpage
 
 %#===========================Conclusion===================================#%
 
 \section{Conclusion} \label{conclusion}
-In this document it was described the way identity is handled by medical institutions nowadays presents a problem. Blockchain was explored as a tool to solve this problem and some of its different implementations were analyzed. Some practical use cases of this technology also discussed. This research will enable solid foundations for future work.
+In this document it was described that the way identity is handled by medical institutions nowadays presents a problem. Blockchain was explored as a tool to solve this problem and some of its different implementations were analyzed. Some practical use cases of this technology also discussed. This research will enable solid foundations for future work.
 \par
 It is safe to say that a system for improving the way a patient can interact with their health data can be built, using this technology, as discussed in previous sections. The system should allow for a transparent handling of personal data and be able to allow for secure management of access to this particular data.
 \par

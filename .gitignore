@@ -1,5 +1,5 @@
 # Ignore the built pdf
-*.pdf
+short_paper.pdf
 
 # Ignore the auxiliary Texmaker Files
 *.bbl
