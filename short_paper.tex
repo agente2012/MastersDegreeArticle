@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}	
 \usepackage[parfill]{parskip}
+\usepackage{graphicx}
 %tweak \url{...}
 \usepackage{url}
 %\urlstyle{same}
@@ -50,8 +51,10 @@ Using the Blockchain technology a system can be created to provide several benef
 over traditional methods being used in today's Health digital landscape. 
 Costs and risks associated with these systems can be reduced and information can become 
 transparent and trustworthy to all participants. In this article the technological foundations 
-that enable this change are explored and analyzed. 
-The system will be presented and its impact in Healthcare discussed.
+that enable this change are explored and analyzed. The Hyperledger Fabric Network with true private 
+transactions and advanced security mechanisms was used to serve as the basis for this system.
+An application was created that uses smart contracts to manipulate the ledger.
+This system will be presented and its impact in Healthcare discussed.
 
 	\begin{keywords}
   		Blockchain, Health, Identity, Big Data
@@ -261,41 +264,43 @@ that store it.
 %#===========================Related Work===================================#%
 
 \subsection{Blockchain for Identity Management in Healthcare: Use Cases}
-Some companies started to see Blockchain applications in the healthcare field 
+Some companies started to see Blockchain applications in the Healthcare field 
 and established some key partnerships however many of those are still very early 
-on development or deployment. 
-One exception is Guardtime that has fully deployed 
-their system for the Estonian Government in 2008 where a million patient records 
-are secured by the strategy and, until today, still proves the resilience of the 
-Blockchain technology thanks to other advances in the cryptography side.
+on development or deployment. Guardtime that has fully deployed their system in 2008 and 
+in 2016 announced a partnership with the Estonian Government, where a million patient records 
+are now secured by the strategy and, until today, still proves the resilience of the 
+Blockchain technology thanks to other advances in cryptography. Now other companies like 
+Verizon are becoming interested in this technology for their purposes.\cite{GuardTime2018}
 
-Gem is a company that is collaborating with Phillips Healthcare to explore options 
+Another company, Gem, is collaborating with Phillips Healthcare to explore options 
 in this area, and is opting to solve the interoperability problem with an additional 
 layer of abstraction they call GemOS. 
 Factom, another Blockchain-based service, has also announced a partnership with a 
 major US medical services provider HealthNautica.\cite{BlockchainCompHealth2017,FactomPartnership2017}
 
-%Reescrever de uma maneira mencionando medichain
-%It is safe to assume that more and more companies will try to fill this void and try 
-%to solve the identity problem we face.
+The use of the Blockchain technology in the health field is expanding. Just recently a new 
+platform appeared, called Medichain that allows patients to store their own data in a secure 
+way and give anonymized access to this data to specialists. Giving data allows for users to gain 
+tokens that represent value. \cite{MediChain2018} 
 
 %#==============Patient Identity Representation in Blockchain==========================#%
 
 \section{A HLF Network for Healthcare} \label{HLFHealthcare}
-\textit{After analyzing the different blockchain implementations the fabric network was 
+\textit{After analyzing the different blockchain implementations the Fabric network was 
 chosen as the foundation for this system. 
 First we will discuss the tools provided to configure the network, and then discuss 
 the system architecture.}
 
 \subsection{Fabric Network Configuration Tools}
 
-HLF does not use a centralized ledger where every record would be available to every 
+Hyperledger Fabric (HLF) does not use a centralized ledger where every record is available to every 
 participant in the network. 
 Instead it opts to allow multiple ledgers in a network to achieve different goals of a greater purpose. 
-This allows, as discussed, the creation of channels of information between trusted parties, 
-for example, a channel of secure and private information between the clinical staff of a hospital and a patient.
+This allows the creation of channels of information between trusted parties, 
+for example, a channel of secure and private information between the clinical staff of an hospital and a patient.
 
-A HLF network has four primary tools that are used to configure the network for its purpose.
+A HLF network is comprised by the \textit{"cryptogen"}, \textit{"configtxgen"}, 
+\textit{"configtxlator"} and \textit{"peer"} tools that are used to configure the network.
 
 The \textit{"cryptogen"} tool generates cryptographic data consuming the file \textit{"crypto-config.yaml"}. 
 HLF uses an abstraction layer for certification and authority called Membership Service Provider (MSP) 
@@ -309,25 +314,76 @@ for channels, the genesis block and the orderer service.
 The \textit{"configtxlator"} tool is also used to generate channel configurations. 
 Finally the \textit{"peer"} tool is used to manage the participating peers in the HLF network.
 
-\subsection{Identity Representation Proposal}
+These tools are used to create and maintain the topology of the network and are invoked when a change 
+to the network is made, for example, when permissions to certain records are changed or a new user is
+enrolled in the network and are very much intertwined with the Certificate Authority (CA) server system
+to maintain the security that is needed in a sensitive subject that deals with private information.
 
-To manage the data of the patient they must be identified by the blockchain. 
-To this purpose it is proposed that the identity of a patient is recorded on the 
-ledger of the fabric network.
+\subsection{Identity Representation in Hyperledger}
+ 
+HLF allows information to be written and read in a distributed manner with security and
+privacy at the forefront. Using smart contracts a record is created to represent the concept of 
+identity in this network.
 
-To aid in interoperability with other systems the FHIR standard for Health Level 7 
-was used as basis for the representation of a patient.
+The information that defines the patients identity is a key requirement to build a
+system that recognizes patients across the Healthcare environment. 
+To this end, the identity of a patient is recorded on the ledger of the HLF network
+as a structure via a smart contract deployed to the network that interacts directly with the ledger. 
+This structure contains the necessary fields to identify the patient
+such as its name and birth date, for example, as well as some other information
+necessary to manage this data. 
+
+To aid in interoperability with other systems the Fast Healthcare Interoperability Resources (FHIR) 
+standard by the Health Level 7 organization was used as basis for the representation of a patient. 
+Each field of the structure that represents the patients identity, defined in the smart contract, 
+is linked to a field of the \href{http://www.hl7.org/fhir/patient.html}{patient structure as presented in the FHIR standard}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\linewidth]{images/interoperability.png}
+\caption{\label{fig:interoperability}An Example of Interoperability with the Blockchain Network}
+\end{figure}
 
 \subsection{Aplication and Smart Contracts}
 
-To create an interactive system an application will be built that the end-user will interact with. 
-This application will interface with smart contracts through Hyperledger Fabric Software Development Kit 
-built using the Hyperledger Fabric Shim for node.js.
+To create an interactive system that can manage the patients identity in an Healthcare environment 
+an application was built that the user interacts with. 
+This application interfaces with smart contracts through the Hyperledger Fabric Software Development Kit
+and the chaincode was built using the Hyperledger Fabric Shim for node.js.
 
-The application will handle the user input and commands will be presented for the user to handle the application flow. 
-The smart contract will handle the assets part of the system. 
-A smart contract to represent and manipulate identity will be built and interface with the network 
-to write records to the appropriate ledger.
+The application will handle the user input and commands will be presented for the user to handle 
+the application flow while the smart contract will handle the assets part of the system.
+To do so, a smart contract to represent and manipulate identity was built and interfaces with the network 
+to write and read records to the appropriate ledger. The overview of the architecture for this system is
+represented on Figure \ref{fig:appOverview}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{images/hyperledgerAppOverview.png}
+\caption{\label{fig:appOverview}An Overview of the System Architecture (Source: \href{http://hyperledger-fabric.readthedocs.io/en/latest/write_first_app.html}{HLF Fabric Documentation})}
+\end{figure}
+
+The application allows for user enrollment to create a new identity in the network.
+When a new user of the application enters in the network the function, in the smart contract, 
+that initializes the creation of the user and writes the user to the ledger as a new participating 
+identity is called. Due to the security mechanisms this specific transaction is automatically signed by the
+administrator of the network and is verified by the CA servers.
+
+The smart contract also provides the application with several operations to manage the identity object as seen 
+on Figure \ref{fig:smartContractOverview}.
+These operations form an Application Programming Interface (API) that return a payload in JSON format with 
+identity information from the network. 
+This API allows a query to be made to the network that returns the patients information, changing incorrect 
+or outdated information or disabling the identity structure of someone who is not participating in the network 
+actively anymore in order for that information to be read-only from that point on, for example, with more available. 
+Depending on the operation only certain users can access the information or manipulate the already existing one.
+This system architecture leads to a modular as well as extensible approach regarding the availability of new 
+operations that become available as soon as new versions of the smart contract are deployed. 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1\linewidth]{images/smartContractOverview.png}
+\caption{\label{fig:smartContractOverview}Smart Contract Operations Example (Original: \href{http://hyperledger-fabric.readthedocs.io/en/latest/write_first_app.html}{HLF Fabric Documentation})}
+\end{figure}
 \newpage
 %#===========================Conclusion===================================#%
 
