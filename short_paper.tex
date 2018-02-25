@@ -112,7 +112,7 @@ system that puts at the forefront of its design the patients, breaking conventio
 In this article different Blockchain implementations are explored and related work in this field is presented. 
 More precisely, in section \ref{background}, a brief introduction to Blockchain is made followed by an introduction 
 to its most prominent implementations. Then a number of real-world use cases of this technology in the healthcare field 
-are explored. In section \ref{HLFHealthcare} technical details of a proposed system will be presented. 
+are explored. In section \ref{HLFHealthcare} technical details of the system will be presented. 
 Finally, in section \ref{conclusion},  some conclusions are observed regarding the change enabled by these advances.
 
 
@@ -266,11 +266,12 @@ that store it.
 \subsection{Blockchain for Identity Management in Healthcare: Use Cases}
 Some companies started to see Blockchain applications in the Healthcare field 
 and established some key partnerships however many of those are still very early 
-on development or deployment. Guardtime that has fully deployed their system in 2008 and 
-in 2016 announced a partnership with the Estonian Government, where a million patient records 
-are now secured by the strategy and, until today, still proves the resilience of the 
-Blockchain technology thanks to other advances in cryptography. Now other companies like 
-Verizon are becoming interested in this technology for their purposes.\cite{GuardTime2018}
+on development or deployment. Guardtime has fully deployed their system in 2008, started 
+cooperating in 2011 and in 2016 announced a partnership with the Estonian Government, 
+where a million patient records are now secured by the strategy and, until today, 
+still proves the resilience of the Blockchain technology thanks to other advances in cryptography. 
+Now other companies like Verizon are becoming interested in this technology for their own purposes.
+\cite{GuardTime2018,EstonianGovernmentGuardTime2016}
 
 Another company, Gem, is collaborating with Phillips Healthcare to explore options 
 in this area, and is opting to solve the interoperability problem with an additional 
@@ -322,7 +323,7 @@ to maintain the security that is needed in a sensitive subject that deals with p
 \subsection{Identity Representation in Hyperledger}
  
 HLF allows information to be written and read in a distributed manner with security and
-privacy at the forefront. Using smart contracts a record is created to represent the concept of 
+privacy at the forefront. Using smart contracts, a record is created to represent the concept of 
 identity in this network.
 
 The information that defines the patients identity is a key requirement to build a
@@ -351,9 +352,9 @@ an application was built that the user interacts with.
 This application interfaces with smart contracts through the Hyperledger Fabric Software Development Kit
 and the chaincode was built using the Hyperledger Fabric Shim for node.js.
 
-The application will handle the user input and commands will be presented for the user to handle 
-the application flow while the smart contract will handle the assets part of the system.
-To do so, a smart contract to represent and manipulate identity was built and interfaces with the network 
+The application is accessed by the user and calls upon the smart contract. 
+The smart contract will handle the assets part of the system.
+A smart contract to represent and manipulate identity was built and interfaces with the network 
 to write and read records to the appropriate ledger. The overview of the architecture for this system is
 represented on Figure \ref{fig:appOverview}
 
