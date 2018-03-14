@@ -47,14 +47,17 @@ Vítor Nogueira}
 %#====================================Abstract===========================================#%
 
 \begin{abstract}
-Using the Blockchain technology a system can be created to provide several benefits 
-over traditional methods being used in today's Health digital landscape. 
-Costs and risks associated with these systems can be reduced and information can become 
-transparent and trustworthy to all participants. In this article the technological foundations 
-that enable this change are explored and analyzed. The Hyperledger Fabric Network with true private 
-transactions and advanced security mechanisms was used to serve as the basis for this system.
-An application was created that uses smart contracts to manipulate the ledger.
-This system will be presented and its impact in Healthcare discussed.
+  Blockchain technology allows the creation of systems that introduce
+  a number of benefits over traditional methods used in today's
+  Healthcare systems.  Costs and risks associated with these systems
+  can be reduced and information can become transparent and
+  trustworthy to all participants. In this article the technological
+  foundations that enable this change are explored and analyzed. The
+  Hyperledger Fabric Network with true private transactions and
+  advanced security mechanisms was used to serve as the basis for this
+  system.  An application was created that uses smart contracts to
+  manipulate the ledger. In this paper we present this system and
+  its impact in Healthcare.
 
   \begin{keywords}
       Blockchain, Health, Identity, Big Data
@@ -248,21 +251,22 @@ This benefits handling of information between the patient
 and the medical professionals and medical institutions. But first we 
 must discuss what is defined as identity in this specific case.
 
-Identity is a construct that depends on the context it is inserted.
-Identity can be defined as the characteristics determining who or what a person is.
-Particularly in this paper we can define identity as the characteristics that 
-determine who the patient is in the given Healthcare ecosystem they belong to, such as, the name, 
-the age, the cellphone number, the gender and the birth date of the patient.
-Electronic Health Records encapsulate this information in a digital format,  
-however they are usually formatted according to the Information System they 
-were designed to work with. Standards are a tool that enable interoperability.
+Identity is a construct that depends on the context.  Identity can be
+defined as the characteristics determining who or what a person is.
+In this paper we define identity as the set of characteristics that
+determine who is the patient in the given Healthcare ecosystem they
+belong to, such as, the name, the age, the cellphone number, the
+gender and the birth date of the patient.  Electronic Health Records
+encapsulate this information in digital format, however, they are
+usually represented in a format according to the Information System
+they were designed to work with.
 
-Standards for EHRs were created and many failed to bring the much needed 
-consensus that was required for interoperability between different 
-Information Systems in different institutions. 
-Health Level 7 has done much work to be recognized in many countries and 
-is quickly being implemented in many countries to allow for joint efforts 
-between organizations.
+To enable interoperability, standards for EHRs were created and many
+failed to bring the much needed consensus that was required for
+interoperability between different Information Systems in different
+institutions.  Health Level 7 has done much work to be recognized in
+many countries and is quickly being implemented in many countries to
+allow for joint efforts between organizations.
 
 Even with these advances in mind, the nature of many clinics and hospitals Information Systems 
 makes the management of their patients identity a very cumbersome, costly and risky affair to handle. 
@@ -299,7 +303,7 @@ tokens that represent value. \cite{MediChain2018}
 %#==============Patient Identity Representation in Blockchain==========================#%
 
 \section{A HLF Network for Healthcare} \label{HLFHealthcare}
-Altough many use cases were presented in Section \ref{background} they do not have the technology 
+Altough many use cases were presented in Section~\ref{background} they do not have the technology 
 that allows true private contracts and some of them use a currency as a means to ensure the network consensus is achieved, by monetizing the patients data.
 After analyzing the different Blockchain implementations the Fabric network was 
 chosen as the foundation for this system. This implementation was chosen to overcome previous works 
